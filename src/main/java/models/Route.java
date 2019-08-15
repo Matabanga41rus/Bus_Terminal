@@ -17,11 +17,13 @@ public class Route {
     @Column(name = "time_out")
     private String time_out;
 
-    @OneToMany(mappedBy = "route", cascade = CascadeType.REFRESH)
-    private List buses;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "bus_id")
+    private Bus bus;
 
-    @OneToMany(mappedBy = "route", cascade = CascadeType.REFRESH)
-    private List towns;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "town_id")
+    private Town town;
 
     public Route(){
 
@@ -30,8 +32,22 @@ public class Route {
     public Route(String time_in, String time_out) {
         this.time_in = time_in;
         this.time_out = time_out;
-        buses = new ArrayList();
-        towns = new ArrayList();
+    }
+
+    public Bus getBus() {
+        return bus;
+    }
+
+    public void setBus(Bus bus) {
+        this.bus = bus;
+    }
+
+    public Town getTown() {
+        return town;
+    }
+
+    public void setTown(Town town) {
+        this.town = town;
     }
 
     public int getRoute_id() {
@@ -58,19 +74,6 @@ public class Route {
         this.time_out = time_out;
     }
 
-    public List getBuses() {
-        return buses;
-    }
 
-    public void setBuses(List buses) {
-        this.buses = buses;
-    }
 
-    public List getTowns() {
-        return towns;
-    }
-
-    public void setTowns(List towns) {
-        this.towns = towns;
-    }
 }

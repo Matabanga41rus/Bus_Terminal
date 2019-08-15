@@ -8,19 +8,19 @@ import models.Town;
 public class TownService {
     private TownDaoImpl dao = new TownDaoImpl();
 
-    public Town findUser(int id) {
+    public Town findTown(int id) {
         return dao.findById(id);
     }
 
-    public void saveUser(Town town) {
+    public void saveTown(Town town) {
         dao.save(town);
     }
 
-    public void deleteUser(Town town) {
+    public void deleteTown(Town town) {
         dao.delete(town);
     }
 
-    public void updateUser(Town town) {
+    public void updateTown(Town town) {
         dao.update(town);
     }
 }

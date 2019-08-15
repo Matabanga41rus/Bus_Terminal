@@ -16,10 +16,6 @@ public class Driver {
     @JoinColumn(name = "bus_id")
     private Bus bus;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "route_id")
-    private Route route;
-
     public Driver(){
 
     }
@@ -52,11 +48,5 @@ public class Driver {
         this.bus = bus;
     }
 
-    public Route getRoute() {
-        return route;
-    }
 
-    public void setRoute(Route route) {
-        this.route = route;
-    }
 }

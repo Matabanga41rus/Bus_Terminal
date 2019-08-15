@@ -1,6 +1,8 @@
 package models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table (name = "town")
@@ -12,14 +14,14 @@ public class Town {
     @Column(name = "town_name")
     private String town_name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "route_id")
-    private Route route;
+    @OneToMany(mappedBy = "bus", cascade = CascadeType.REFRESH)
+    private List<Route> routes;
 
     public Town(){}
 
     public Town(String town_name) {
         this.town_name = town_name;
+        routes = new ArrayList<Route>();
     }
 
     public int getTown_id() {
@@ -38,11 +40,12 @@ public class Town {
         this.town_name = town_name;
     }
 
-    public Route getRoute() {
-        return route;
+    public void addRoute(Route route){
+        route.setTown(this);
+        routes.add(route);
     }
 
-    public void setRoute(Route route) {
-        this.route = route;
+    public void removeRoute(Route route){
+        routes.remove(route);
     }
 }

@@ -6,21 +6,25 @@ import models.Bus;
 import models.Driver;
 
 public class BusService {
-    private BusDaoImpl dao = new BusDaoImpl();
+    private BusDaoImpl dao;
 
-    public Bus findUser(int id) {
+    public BusService(){
+        dao = new BusDaoImpl();
+    }
+
+    public Bus findBus(int id) {
         return dao.findById(id);
     }
 
-    public void saveUser(Bus bus) {
+    public void saveBus(Bus bus) {
         dao.save(bus);
     }
 
-    public void deleteUser(Bus bus) {
+    public void deleteBus(Bus bus) {
         dao.delete(bus);
     }
 
-    public void updateUser(Bus bus) {
+    public void updateBus(Bus bus) {
         dao.update(bus);
     }
 }

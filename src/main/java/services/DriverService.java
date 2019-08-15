@@ -6,19 +6,19 @@ import models.Driver;
 public class DriverService {
     private DriverDaoImpl dao = new DriverDaoImpl();
 
-    public Driver findUser(int id) {
+    public Driver finDriver(int id) {
         return dao.findById(id);
     }
 
-    public void saveUser(Driver driver) {
+    public void saveDriver(Driver driver) {
         dao.save(driver);
     }
 
-    public void deleteUser(Driver driver) {
+    public void deleteDriver(Driver driver) {
         dao.delete(driver);
     }
 
-    public void updateUser(Driver driver) {
+    public void updateDriver(Driver driver) {
         dao.update(driver);
     }
 }

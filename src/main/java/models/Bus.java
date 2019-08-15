@@ -20,6 +20,9 @@ public class Bus {
     @OneToMany(mappedBy = "bus", cascade = CascadeType.REFRESH)
     private List<Driver> drivers;
 
+    @OneToMany(mappedBy = "bus", cascade = CascadeType.REFRESH)
+    private List<Route> routes;
+
     public Bus(){
 
     }
@@ -28,6 +31,7 @@ public class Bus {
         this.bus_name = bus_name;
         this.gos_number = gos_number;
         drivers = new ArrayList<Driver>();
+        routes = new ArrayList<Route>();
     }
 
     public void addDriver(Driver driver){
@@ -70,4 +74,15 @@ public class Bus {
     public void setDrivers(List<Driver> drivers) {
         this.drivers = drivers;
     }
+
+    public void addRoute(Route route){
+        route.setBus(this);
+        routes.add(route);
+    }
+
+    public void removeRoute(Route route){
+        routes.remove(route);
+    }
+
+
 }

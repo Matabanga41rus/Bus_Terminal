@@ -8,19 +8,19 @@ import models.Route;
 public class RouteService {
     private RouteDaoImpl dao = new RouteDaoImpl();
 
-    public Route findUser(int id) {
+    public Route findRoute(int id) {
         return dao.findById(id);
     }
 
-    public void saveUser(Route route) {
+    public void saveRoute(Route route) {
         dao.save(route);
     }
 
-    public void deleteUser(Route route) {
+    public void deleteRoute(Route route) {
         dao.delete(route);
     }
 
-    public void updateUser(Route route) {
+    public void updateRoute(Route route) {
         dao.update(route);
     }
 }
