@@ -119,7 +119,7 @@ public class Controller {
     @FXML
     public void initialize(){
 
-
+        // ЗАЕБАЛО НАХУЙ БЕСИТ БЛЯТЬ
 
         listBus = getListBus();
         listDriver = getListDriver();
