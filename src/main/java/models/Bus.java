@@ -17,7 +17,7 @@ public class Bus {
     @Column(name = "gos_number")
     private String gos_number;
 
-    @OneToMany(mappedBy = "bus", cascade = CascadeType.REFRESH)
+    @OneToMany(mappedBy = "bus", cascade = CascadeType.ALL)
     private List<Driver> drivers;
 
     @OneToMany(mappedBy = "bus", cascade = CascadeType.REFRESH)

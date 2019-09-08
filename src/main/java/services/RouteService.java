@@ -1,9 +1,9 @@
 package services;
 
-import dao.driver.DriverDaoImpl;
 import dao.route.RouteDaoImpl;
-import models.Driver;
 import models.Route;
+
+import java.util.List;
 
 public class RouteService {
     private RouteDaoImpl dao = new RouteDaoImpl();
@@ -23,4 +23,9 @@ public class RouteService {
     public void updateRoute(Route route) {
         dao.update(route);
     }
+
+    public List<Route> findAllRoute(){
+        return dao.findAll("route");
+    }
+
 }

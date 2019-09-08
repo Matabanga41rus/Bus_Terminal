@@ -1,6 +1,5 @@
 package dao.bus;
 
-import dao.bus.BusDao;
 import models.Bus;
 import org.hibernate.Session;
 import utils.HibernateSessionFactoryUtil;

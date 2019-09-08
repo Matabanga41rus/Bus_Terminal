@@ -4,6 +4,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import utils.HibernateSessionFactoryUtil;
 
+import java.util.List;
+
 public abstract class BasicDao<E> {
     public void save(E e){
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
@@ -27,5 +29,10 @@ public abstract class BasicDao<E> {
         session.delete(e);
         tx1.commit();
         session.close();
+    }
+
+    public List<E> findAll(String nameTable) {
+        List<E> users = (List<E>)  HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("From " + nameTable).list();
+        return users;
     }
 }

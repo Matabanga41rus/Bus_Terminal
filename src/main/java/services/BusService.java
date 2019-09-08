@@ -1,9 +1,9 @@
 package services;
 
 import dao.bus.BusDaoImpl;
-import dao.driver.DriverDaoImpl;
 import models.Bus;
-import models.Driver;
+
+import java.util.List;
 
 public class BusService {
     private BusDaoImpl dao;
@@ -26,5 +26,9 @@ public class BusService {
 
     public void updateBus(Bus bus) {
         dao.update(bus);
+    }
+
+    public List<Bus> findAllBus(){
+        return dao.findAll("bus");
     }
 }

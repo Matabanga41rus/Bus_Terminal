@@ -1,9 +1,9 @@
 package services;
 
-import dao.driver.DriverDaoImpl;
 import dao.town.TownDaoImpl;
-import models.Driver;
 import models.Town;
+
+import java.util.List;
 
 public class TownService {
     private TownDaoImpl dao = new TownDaoImpl();
@@ -22,5 +22,9 @@ public class TownService {
 
     public void updateTown(Town town) {
         dao.update(town);
+    }
+
+    public List<Town> findAllTown(){
+        return dao.findAll("town");
     }
 }

@@ -14,7 +14,7 @@ public class Town {
     @Column(name = "town_name")
     private String town_name;
 
-    @OneToMany(mappedBy = "bus", cascade = CascadeType.REFRESH)
+    @OneToMany(mappedBy = "town", cascade = CascadeType.ALL)
     private List<Route> routes;
 
     public Town(){}

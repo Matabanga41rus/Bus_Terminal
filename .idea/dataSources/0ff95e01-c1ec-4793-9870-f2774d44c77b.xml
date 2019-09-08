@@ -1374,6 +1374,8 @@
       <RefSchemaName>bus_terminal</RefSchemaName>
       <RefTableName>bus</RefTableName>
       <RefColNames>bus_id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <column id="343" parent="331" name="route_id">
       <Position>1</Position>
@@ -1384,14 +1386,16 @@
     </column>
     <column id="344" parent="331" name="time_in">
       <Position>2</Position>
-      <DataType>varchar(4)|0s</DataType>
+      <DataType>varchar(5)|0s</DataType>
       <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;&apos;&apos;&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="345" parent="331" name="time_out">
       <Position>3</Position>
-      <DataType>varchar(4)|0s</DataType>
+      <DataType>varchar(5)|0s</DataType>
       <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;&apos;&apos;&apos;&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="346" parent="331" name="bus_id">
@@ -1400,10 +1404,11 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="347" parent="331" name="townd_id">
+    <column id="347" parent="331" name="town_id">
       <Position>5</Position>
       <DataType>int(4)|0s</DataType>
       <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <index id="348" parent="331" name="route_bus_bus_id_fk">
@@ -1411,7 +1416,7 @@
       <Type>btree</Type>
     </index>
     <index id="349" parent="331" name="route_town_town_id_fk">
-      <ColNames>townd_id</ColNames>
+      <ColNames>town_id</ColNames>
       <Type>btree</Type>
     </index>
     <key id="350" parent="331" name="PRIMARY">
@@ -1426,10 +1431,12 @@
       <RefColNames>bus_id</RefColNames>
     </foreign-key>
     <foreign-key id="352" parent="331" name="route_town_town_id_fk">
-      <ColNames>townd_id</ColNames>
+      <ColNames>town_id</ColNames>
       <RefSchemaName>bus_terminal</RefSchemaName>
       <RefTableName>town</RefTableName>
       <RefColNames>town_id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <column id="353" parent="332" name="town_id">
       <Position>1</Position>

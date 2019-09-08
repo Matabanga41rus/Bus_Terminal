@@ -3,6 +3,8 @@ package services;
 import dao.driver.DriverDaoImpl;
 import models.Driver;
 
+import java.util.List;
+
 public class DriverService {
     private DriverDaoImpl dao = new DriverDaoImpl();
 
@@ -20,5 +22,9 @@ public class DriverService {
 
     public void updateDriver(Driver driver) {
         dao.update(driver);
+    }
+
+    public List<Driver> findAllDriver(){
+        return dao.findAll("driver");
     }
 }
